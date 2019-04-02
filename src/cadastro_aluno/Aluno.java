@@ -7,6 +7,7 @@ package cadastro_aluno;
 public class Aluno extends Pessoa {
 	private String ra;
 	private int semestre;
+	private Disciplinas dis;
 	
 	public Aluno (){
 		super();
@@ -49,5 +50,13 @@ public class Aluno extends Pessoa {
 	 */
 	public String toString(){
 		return(super.toString() + "\nRA: " + getRa() + ",   Serie: " + getSemestre());
+	}
+	
+	public void setDisciplina(String txt){
+		dis = new Disciplinas();
+		dis.adicionarDisciplinas(txt);
+	}
+	public String getDisciplinas(int index){
+		return dis.getDisciplina(index);
 	}
 }

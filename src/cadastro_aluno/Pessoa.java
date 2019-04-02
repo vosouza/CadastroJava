@@ -7,7 +7,7 @@ public class Pessoa {
 	protected NomePessoa nome;
 	private int idade;
 	private String rg;
-
+ 
 	public Pessoa(){
 		
 	}

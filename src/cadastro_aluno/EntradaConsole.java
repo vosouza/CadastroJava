@@ -20,14 +20,20 @@ public class EntradaConsole implements IEntrada
         return scan.nextInt();
     }
     public String getRg(){
+    	String c;
         Scanner sc = new Scanner( System.in );
         System.out.println("Digite o RG do Aluno:");
-        return sc.nextLine();
+        c = sc.nextLine();
+        sc.close();
+        return c;
     }
     public String getRa(){
+    	String c;
         Scanner sc = new Scanner( System.in );
         System.out.println("Digite o RA do Aluno:");
-        return sc.nextLine();
+        c = sc.nextLine();
+        sc.close();
+        return c;
     }
     public int getSemestre(){
         System.out.println("Digite o Semestre do Aluno:");
