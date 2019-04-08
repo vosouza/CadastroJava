@@ -1,62 +1,56 @@
-package cadastro_aluno;
+package ledcadastro;
 
-/**
- * @author julio
- *
- */
-public class Aluno extends Pessoa {
-	private String ra;
-	private int semestre;
-	private Disciplinas dis;
+public class Aluno extends Pessoa{
+    private String ra;
+    private int semestre;
+    public Disciplinas listaD;
+
+    public Aluno(){
+        super("",0,"");
+        this.listaD = new Disciplinas(2);
+    }
+
+    public Aluno(String nome, int idade, String rg, String ra, int semestre, int numDisc){
+        super(nome, idade, rg);
+        this.ra = ra;
+        this.semestre = semestre;
+        this.listaD = new Disciplinas(numDisc);
+    }
+
+    public String getRa(){
+            return this.ra;
+    }
+
+    public void setRa(String ra){
+        this.ra = ra;
+    }
+
+    public int getSemestre() {
+        return this.semestre;
+    }
+
+    public void setSemestre(int semestre) {
+        this.semestre = semestre;
+    }
+    
+    @Override
+    public String getString(){
+        return(super.getString() + "\nRA: " + this.getRa() + ",   Serie: " + this.getSemestre());
+    }
 	
-	public Aluno (){
-		super();
-	}
-	public Aluno(String nome, int idade, String rg, String ra, int semestre) {
-		super(nome, idade, rg);
-		setRa(ra);
-		setSemestre(semestre);
-	}
+    public boolean equals(Aluno a1){
+        if(this.getNome().equals(a1.getNome())){
+            if(this.getIdade() == a1.getIdade()){
+                if(this.getRg().equals(a1.getRg())){
+                    if(this.getRa().equals(a1.getRa())){
+                        if(this.getSemestre() == a1.getSemestre()){
+                                return true;
+                        }
+                    }
+                }
+            }
+        }
 
-	/**
-	 * @return the ra
-	 */
-	public String getRa() {
-		return this.ra;
-	}
-
-	/**
-	 * @param _prontuario the ra to set
-	 */
-	public void setRa(String ra) {
-		this.ra = ra;
-	}
-
-	/**
-	 * @return the semestre
-	 */
-	public int getSemestre() {
-		return semestre;
-	}
-
-	/**
-	 * @param _serie the _semestre to set
-	 */
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
-	}
-	/* Imprime dados do aluno
-	 * 
-	 */
-	public String toString(){
-		return(super.toString() + "\nRA: " + getRa() + ",   Serie: " + getSemestre());
-	}
-	
-	public void setDisciplina(String txt){
-		dis = new Disciplinas();
-		dis.adicionarDisciplinas(txt);
-	}
-	public String getDisciplinas(int index){
-		return dis.getDisciplina(index);
-	}
+        return false;
+    }
 }

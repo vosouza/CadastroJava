@@ -1,27 +1,27 @@
 package ledcadastro;
 
-public class NomePessoa extends Texto{
+public class NomeDisciplina extends Texto{
 	// Atributos
-	private String nome;
+	private String disc;
 
 	// Construtores
-	public NomePessoa(String nome){
-            super(nome);
-            setNome(super.getTxt());
+	public NomeDisciplina(String disc){
+            super(disc);
+            setDisciplina(super.getTxt());
 	}
 
 	/**
 	 * @return the nome
 	 */
-	public String getNome() {
-            return nome;
+	public String getDisciplina() {
+            return disc;
 	}
 
 	/**
 	 * @param nome the nome to set
 	 */
-	public void setNome(String nome) {
-            this.nome = nome;
+	public void setDisciplina(String disc) {
+            this.disc = disc;
 	}
 	
 	
@@ -37,10 +37,9 @@ public class NomePessoa extends Texto{
 	 * Retorna nome bibliografico
 	 * @return sBib nome bibliografico
 	 */
-	public String getNomeBiblio(){
-
+	public String getDiscBiblio(){
             // Separa as palavras
-            String vts[] = getNome().split(" ");
+            String vts[] = getDisciplina().split(" ");
             int qtd = vts.length;
 
             String sBib = vts[qtd-1] + ", "; // ultimo nome + a virgula
@@ -72,4 +71,3 @@ public class NomePessoa extends Texto{
 	}
 
 }
-

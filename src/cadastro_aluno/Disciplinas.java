@@ -1,23 +1,36 @@
-package cadastro_aluno;
+package ledcadastro;
 
 public class Disciplinas {
-	private Texto disciplina[];
-	private int tam = 5;
-	private int cont = 0;
-	
-	public Disciplinas(){
-		disciplina = new Texto[tam];
-		ss
-	}
-	
-	public void adicionarDisciplinas(String dis){
-		Texto t = new Texto(dis);
-		disciplina[cont] = t;
-		cont++;
-	}
-	
-	public String getDisciplina(int index){
-		return disciplina[index].getTxt();
-	}
-	
+    public Disciplina disc[];
+    public final int max;
+    public int tam;
+    
+    public Disciplinas(int max){
+        this.max = max;
+        this.disc = new Disciplina[this.getMax()];
+        this.setTam(0);
+    }
+    
+    public int getMax(){
+        return this.max;
+    }
+    
+    public boolean addDisciplina(Disciplina disc){
+        if(this.getMax() > this.getTam()){
+            this.setTam(this.getTam() + 1);
+            this.disc[this.getTam()] = disc;
+            
+            return true;
+        }
+        
+        return false;
+    }
+
+    private void setTam(int tam){
+        this.tam = tam;
+    }
+
+    private int getTam() {
+        return this.tam;
+    }
 }

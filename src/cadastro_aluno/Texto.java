@@ -1,10 +1,12 @@
-package cadastro_aluno;
+package ledcadastro;
+
 /**
  * Armazena um texto. Inverte texto e limpa espaços extras
  * 
  * @author Julio Arakaki 
  * @version 1.0 2019/02/29
  */
+
 public class Texto {
     // Atributo da classe ou varáveis de instancia
     private String txt;

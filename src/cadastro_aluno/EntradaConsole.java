@@ -1,46 +1,57 @@
-package cadastro_aluno;
-
+package ledcadastro;
 import java.util.Scanner;
 
-/**
- * Escreva a descrição da classe EntradaConsole aqui.
- * 
- * @author (seu nome) 
- * @version (número de versão ou data)
- */
-public class EntradaConsole implements IEntrada
-{
-	Scanner scan = new Scanner( System.in );
-    public String getNome(){
-        System.out.println("Digite o nome do Aluno:");
-        return scan.nextLine();
-    }
-    public int getIdade(){
-        System.out.println("Digite o idade do Aluno:");
-        return scan.nextInt();
-    }
-    public String getRg(){
-    	String c;
-        Scanner sc = new Scanner( System.in );
-        System.out.println("Digite o RG do Aluno:");
-        c = sc.nextLine();
-        sc.close();
-        return c;
-    }
-    public String getRa(){
-    	String c;
-        Scanner sc = new Scanner( System.in );
-        System.out.println("Digite o RA do Aluno:");
-        c = sc.nextLine();
-        sc.close();
-        return c;
-    }
-    public int getSemestre(){
-        System.out.println("Digite o Semestre do Aluno:");
-        return scan.nextInt();
-    }
-    public void show(String dado){
-        System.out.println(dado);
-    }
-    
+public class EntradaConsole implements IEntrada{
+	Scanner sc = new Scanner(System.in);
+	
+	public void lerDados(Aluno aluno){
+		boolean b=true;
+		do {
+		try {
+            System.out.println("Digite o nome: ");
+            aluno.setNomeP(sc.nextLine());
+
+            System.out.println("Digite a idade: ");
+            aluno.setIdade(sc.nextInt());
+
+            System.out.println("Digite o RG: ");
+            aluno.setRg(sc.nextLine());
+
+            System.out.println("Digite o RA: ");
+            aluno.setRa(sc.nextLine());
+
+            System.out.println("Digite o semestre: ");
+            aluno.setSemestre(sc.nextInt());
+            
+            b = false;
+		}catch(NumberFormatException  e) {
+			System.out.println("Voce digitou algo errado, tente novamente!");
+			b=true;
+			sc.nextLine();
+			
+		}
+		}while(b);
+	}
+        
+        public void lerDadosDisc(Disciplina disc){
+        	boolean b=true;
+    		do {
+	    		try {
+		            System.out.println("Digite o nome da disciplina: ");
+		            disc.setDisciplina(sc.nextLine());
+		
+		            System.out.println("Digite o nome do professor: ");
+		            disc.setProf(sc.nextLine());
+		
+		            System.out.println("Digite a nota: ");
+		            disc.setNota(sc.nextDouble());
+		            b = false;
+	       		}catch(NumberFormatException  e) {
+	       			System.out.println("Voce digitou algo errado, tente novamente!");
+	       			b=true;
+	       			sc.nextLine();
+	       			
+	       		}
+       		}while(b);
+        }
 }
